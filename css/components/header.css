@@ -1,0 +1,20 @@
+.header {
+    background-color: var(--clr1);
+    height: 50px;
+    color: white;
+}
+
+.logo {
+    font-family: eurofurence;
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.header section {
+    width: 980px;
+}
+
+.header ul li:hover {
+    color: black;
+    cursor: pointer;
+}

@@ -1,0 +1,14 @@
+@font-face {
+    font-family: montserrat;
+    src: url(/Fonts/montserrat/Montserrat-Regular.ttf);
+}
+
+@font-face {
+    font-family: montserrat-bold;
+    src: url(/Fonts/montserrat/Montserrat-Bold.ttf);
+}
+
+@font-face {
+    font-family: eurofurence;
+    src: url(/Fonts/eurofurence/eurof55.ttf);
+}

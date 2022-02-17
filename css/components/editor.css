@@ -1,0 +1,21 @@
+.editor-main {
+    padding: 13px 0;
+}
+
+.editor-section {
+    text-align: center;
+    gap: 10px;
+}
+
+.a {
+    width: 17px;
+    height: 28.5px;
+    -webkit-text-stroke: 2.5px #000;
+    font-family: Montserrat;
+    font-size: 23px;
+    margin-inline-end: 7px;
+}
+
+.txt-input {
+    margin-top: 13px;
+}

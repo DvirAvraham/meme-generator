@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fff;
+    font-family: montserrat;
+}
+
+.gallery-main {
+    display: none;
+}
+
+.editor-main {
+    display: none;
+    margin-top: 13px;
+}
+
+.canvas-container {
+    min-width: 450px;
+}
+
+canvas {
+    border: 2px solid black;
+    display: block;
+    border-radius: 5px;
+    width: 100%;
+}
+
+button {
+    border: unset;
+    cursor: pointer;
+}

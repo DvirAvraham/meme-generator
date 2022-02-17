@@ -1,0 +1,41 @@
+.grid {
+    display: grid;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex.space-between {
+    justify-content: space-between;
+}
+
+.flex.align-center {
+    align-items: center;
+}
+
+.flex.justify-center {
+    justify-items: center;
+}
+
+.flex.column {
+    flex-direction: column;
+}
+
+.clean-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dark-bg {
+    background-color: var(--clr2);
+}
+
+.show {
+    display: block;
+}
+
+.btn {
+    border-radius: 20%;
+}

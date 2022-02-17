@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Generator</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body onload="onInit()">
+
+    <div class="main-screen" onclick="toggleNav()"></div>
+    <header class="header flex align-center">
+        <section class="flex  align-center space-between main-layout">
+            <div class="logo">Meme Generator</div>
+            <div class="flex header-options ">
+                <ul class="header-options-list flex clean-list">
+                    <li class="header-gallery-btn" onclick="renderImgs()"> Gallery </li>
+                    <li class="header-ham-btn" onclick="renderImgs(), toggleNav()"> Gallery </li>
+                    <li class="header-about-btn"> About.</li>
+                </ul>
+            </div>
+            <button class="nav-btn" onclick="toggleNav()">☰</button>
+        </section>
+    </header>
+
+    <div class="gallery">
+        <section class="gallery-main">
+            <div class="search-bar flex space-between main-layout align-center">
+                <div class="sort-input"><input type="text" placeholder="Enter search keyword"> <img src="img/sort.png" alt="" class="sort-gallery" onclick="sortGallery()"></div>
+                <div class="keyword-section">happy</div>
+            </div>
+            <div class="dark-bg">
+                <div class="gallery-section grid main-layout"></div>
+            </div>
+        </section>
+    </div>
+
+    <div class="dark-bg">
+        <section class="editor-main flex space-between main-layout">
+            <div class="canvas-container">
+                <canvas width="450" height="430" id="my-canvas"></canvas>
+            </div>
+            <div class="editor-section flex column ">
+                <div class="txt-input"><input type="text" name="input-txt" placeholder="Type here..." oninput="updateLineTxt(this.value)"></div>
+                <div>
+                    <button class="btn" onclick="onSwitchLine()"> <img src="img/up-and-down-opposite-double-arrows-side-by-side.jpg" alt=""> </button>
+                    <button class="btn" onclick="onAddLine()"> <img src="img/add.jpg" alt=""> </button>
+                    <button class="btn" onclick="onRemoveLine()"> <img src="img/trash.jpg" alt=""> </button>
+                </div>
+                <div>
+                    <button class="btn" onclick="onIncreaseFontSize()"> <img src="img/increase.png" alt=""> </button>
+                    <button class="btn" onclick="onReduceFontSize()"> <img src="img/decrease.jpg" alt=""> </button>
+                    <button class="btn" onclick="onLeftText()"> <img src="img/left.png" alt=""> </button>
+                    <button class="btn" onclick="onCenterText()"> <img src="img/center.jpg" alt=""> </button>
+                    <button class="btn" onclick="onRightText()"> <img src="img/right.jpg" alt=""> </button>
+                </div>
+                <div>
+                    <button class="btn a" onclick="onBoldText()"> A </button> Set Color - <input type="color" name="color-fill" oninput="updateColorTxt(this.value)">
+                </div>
+                <div> <input type="file" onchange="onImgInput(ev)"></div>
+
+            </div>
+        </section>
+    </div>
+
+    <p class="user-msg "></p>
+    <div class="share-container "></div>
+
+    <section class="info main-layout flex align-center">
+        <div><img src="img/me.jpg" alt="" class="info-img"></div>
+        <div class="info-txt flex column">
+            <h1 class="name">Dvir Avraham</h1>
+            <div class="info-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium illo vero quod eligendi aliquid voluptatem porro doloremque suscipit. Hic assumenda doloremque unde possimus dolorem. Laudantium.</div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer main-layout flex column justify-center ">
+            <div class="logo">Meme Generator</div>
+            <p> all rights reserved 2022 D.A.</p>
+        </div>
+    </footer>
+
+
+    <script src="js/storage-service.js"></script>
+    <script src="js/service.js"></script>
+    <script src="js/meme-controller.js"></script>
+    <script src="js/gallery-controller.js"></script>
+</body>
+
+</html>
+
+<!-- git remote add origin https://github.com/DvirAvraham/meme-git.git
+git branch -M main
+git push -u origin main -->

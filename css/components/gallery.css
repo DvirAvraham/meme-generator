@@ -1,0 +1,21 @@
+.gallery-main .img {
+    width: inherit;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.search-bar {
+    height: 6.25rem;
+}
+
+.sort-input {
+    border-bottom: 2px solid black;
+}
+
+.sort-input input {
+    border: unset;
+}
+
+.sort-input img {
+    width: 20px;
+}
