@@ -1,8 +1,6 @@
 'use strict'
 
 var gImgs
-createImgs()
-
 var gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
@@ -12,23 +10,32 @@ var gMeme = {
         align: 'left',
         color: 'black',
         x: 100,
-        y: 100
+        y: 100,
+        isDrag: false
+
     }]
 }
 
+createImgs()
+
+function getMeme() {
+    return gMeme
+}
+
+function getImgs() {
+    return gImgs
+}
+
 function resetMeme() {
-    gMeme = {
-        selectedImgId: 1,
-        selectedLineIdx: 0,
-        lines: [{
-            txt: 'I sometimes eat Falafel',
-            size: 20,
-            align: 'left',
-            color: 'black',
-            x: 100,
-            y: 100
-        }]
-    }
+    gMeme.lines = [{
+        txt: 'I sometimes eat Falafel',
+        size: 20,
+        align: 'left',
+        color: 'black',
+        x: 100,
+        y: 100,
+        isDrag: false
+    }]
 }
 
 function updateLinePos(x, y) {
@@ -41,14 +48,6 @@ function updateLinePos(x, y) {
         y
     }
     gMeme.lines.push(line)
-}
-
-function getMeme() {
-    return gMeme
-}
-
-function getImgs() {
-    return gImgs
 }
 
 function createImgs() {
@@ -73,7 +72,6 @@ function createImgs() {
         createImg(18, ['funny', 'sweet'])
     ]
 }
-
 
 function createImg(id, keywords) {
     var img = {
@@ -111,4 +109,24 @@ function setLineTxt(txt, idx) {
 
 function setColorTxt(color, idx) {
     gMeme.lines[idx].color = color
+}
+
+function isLineClicked(clickedPos, idx) {
+    const posX = gMeme.lines[idx].x
+    const posY = gMeme.lines[idx].y
+    var txtLength = gCtx.measureText(gMeme.lines[idx].txt).width
+    console.log(txtLength);
+    // debugger
+    const distanceX = Math.sqrt((posX + txtLength - clickedPos.x) ** 2)
+    const distanceY = Math.sqrt((posY - clickedPos.y) ** 2)
+    return (distanceY <= gMeme.lines[idx].size && distanceX <= gMeme.lines[idx].size + txtLength)
+}
+
+function setLinkDrag(isDrag, idx) {
+    gMeme.lines[idx].isDrag = isDrag
+}
+
+function moveLine(dx, dy, idx) {
+    gMeme.lines[idx].x += dx
+    gMeme.lines[idx].y += dy
 }
