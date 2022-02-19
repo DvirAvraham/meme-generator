@@ -17,7 +17,8 @@ function renderImgs() {
     const imgs = getImgs()
     var strHTMLs = imgs.map(img => {
         return `</div class="main-layout">
-                 <img class="img" id="${img.id}" src="${img.url}" onclick="renderMeme(${img.id})" alt="">
+                 <img class="img" id="${img.id}" src="${img.url}" 
+                 onclick="renderMeme(${img.id})" alt="">
                 </div>`
     })
     document.querySelector('.gallery-section').innerHTML = strHTMLs.join('')
@@ -43,7 +44,8 @@ function filterByKeyWords(keyWordByClick) {
     if (!KeyImgs.length) strHTMLs = [`</div class="main-layout">No Results...</div>`]
     else var strHTMLs = KeyImgs.map(img => {
         return `</div class="main-layout">
-        <img class="img" id="${img.id}" src="${img.url}" onclick="renderMeme(${img.id})" alt="">
+        <img class="img" id="${img.id}" src="${img.url}" 
+        onclick="renderMeme(${img.id})" alt="">
         </div>`
     })
     document.querySelector('.gallery-section').innerHTML = strHTMLs.join('')
@@ -55,7 +57,8 @@ function renderKeyWords() {
     var keyWords = []
     for (var i = 0; i < imgs.length; i++) {
         for (var j = 0; j < imgs[i].keywords.length; j++) {
-            if (!keyWords.includes(imgs[i].keywords[j])) keyWords.push(imgs[i].keywords[j])
+            var currKeyWord = imgs[i].keywords[j]
+            if (!keyWords.includes(currKeyWord)) keyWords.push(currKeyWord)
         }
     }
     keyWords.forEach(keyword => {
@@ -65,9 +68,9 @@ function renderKeyWords() {
         }
         gKeyRate.push(keywordObj)
     })
-
     var strHTMLs = keyWords.map(keyWord => {
-        return `<div class="key-word" onclick="increaseFontSize('${keyWord}', this)">${keyWord}  ,</div>`
+        return `<div class="key-word"
+         onclick="increaseFontSize('${keyWord}', this)">${keyWord}  ,</div>`
     })
     document.querySelector('.keywords-section').innerHTML = strHTMLs.join('')
 }
