@@ -75,12 +75,6 @@ function onAddLine() {
 }
 
 function updateLineTxt(txt) {
-    // debugger
-    // if (!gLinesNum && gIsNotFirstLine) {
-    //     gLinesNum--
-    //     onAddLine()
-    // }
-    // gIsNotFirstLine = true
     setTxtLocation()
     setLineTxt(txt, gLinesNum)
     reRender()
@@ -109,8 +103,6 @@ function resizeCanvas() {
     gElCanvas.width = elContainer.offsetWidth - 20
 }
 
-// ...................................................................
-
 function addListeners() {
     addMouseListeners()
     addTouchListeners()
@@ -131,13 +123,12 @@ function addTouchListeners() {
     gElCanvas.addEventListener('touchend', onUp)
 }
 
-// ...................................................................
-
 function onImgInput(ev) {
     loadImageFromInput(ev, renderImg)
 }
 
 function loadImageFromInput(ev, onImageReady) {
+    debugger
     // document.querySelector('.share-container').innerHTML = ''
     var reader = new FileReader()
 
@@ -152,7 +143,6 @@ function loadImageFromInput(ev, onImageReady) {
     console.log('after');
     reader.readAsDataURL(ev.target.files[0])
 }
-
 
 function renderImg(img) {
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
@@ -176,7 +166,6 @@ function onDown(ev) {
     const meme = getMeme().lines
     var isHitLine = false
     const pos = getEvPos(ev)
-    console.log('onDown()');
     for (var i = 0; i < meme.length; i++) {
         if (isLineClicked(pos, i)) {
             gLinesNum = i;

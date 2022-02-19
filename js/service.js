@@ -115,8 +115,6 @@ function isLineClicked(clickedPos, idx) {
     const posX = gMeme.lines[idx].x
     const posY = gMeme.lines[idx].y
     var txtLength = gCtx.measureText(gMeme.lines[idx].txt).width
-    console.log(txtLength);
-    // debugger
     const distanceX = Math.sqrt((posX + txtLength - clickedPos.x) ** 2)
     const distanceY = Math.sqrt((posY - clickedPos.y) ** 2)
     return (distanceY <= gMeme.lines[idx].size && distanceX <= gMeme.lines[idx].size + txtLength)

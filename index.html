@@ -44,7 +44,7 @@
                 <canvas width="450" height="430" id="my-canvas"></canvas>
             </div>
             <div class="editor-section flex column ">
-                <div class="txt-input"><input type="text" name="input-txt" placeholder="Type here..." oninput="updateLineTxt(this.value)"></div>
+                <div class="txt-input"><input type="text" name="input-txt" id="input-txt" placeholder="Type here..." oninput="updateLineTxt(this.value)"></div>
                 <div>
                     <button class="btn" onclick="onSwitchLine()"> <img src="img/up-and-down-opposite-double-arrows-side-by-side.jpg" alt=""> </button>
                     <button class="btn" onclick="onAddLine()"> <img src="img/add.jpg" alt=""> </button>
@@ -61,13 +61,13 @@
                     <button class="btn a" onclick="onBoldText()"> A </button> Set Color - <input type="color" name="color-fill" oninput="updateColorTxt(this.value)">
                 </div>
                 <div> <input type="file" onchange="onImgInput(ev)"></div>
-
+                <div class="share-on-facebook" onclick="uploadImg()"> Share On Facebook </div>
             </div>
         </section>
     </div>
 
     <p class="user-msg "></p>
-    <div class="share-container "></div>
+    <div class="share-container"> </div>
 
     <section class="info main-layout flex align-center">
         <div><img src="img/me.jpg" alt="" class="info-img"></div>
@@ -86,13 +86,10 @@
 
 
     <script src="js/storage-service.js"></script>
+    <script src="js/upload-service.js"></script>
     <script src="js/service.js"></script>
     <script src="js/meme-controller.js"></script>
     <script src="js/gallery-controller.js"></script>
 </body>
 
 </html>
-
-<!-- git remote add origin https://github.com/DvirAvraham/meme-git.git
-git branch -M main
-git push -u origin main -->
