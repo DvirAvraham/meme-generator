@@ -52,7 +52,6 @@ function filterByKeyWords(keyWordByClick) {
 
 function renderKeyWords() {
     const imgs = getImgs()
-
     var keyWords = []
     for (var i = 0; i < imgs.length; i++) {
         for (var j = 0; j < imgs[i].keywords.length; j++) {

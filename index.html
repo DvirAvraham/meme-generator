@@ -14,7 +14,7 @@
     <div class="main-screen" onclick="toggleNav()"></div>
     <header class="header flex align-center">
         <section class="flex  align-center space-between main-layout">
-            <div class="logo">Meme Generator</div>
+            <div class="logo" onclick="renderImgs()">Meme Generator</div>
             <div class="flex header-options ">
                 <ul class="header-options-list flex clean-list">
                     <li class="header-gallery-btn" onclick="renderImgs()"> Gallery </li>
@@ -29,14 +29,25 @@
     <div class="gallery">
         <section class="gallery-main">
             <div class="search-bar flex space-between main-layout align-center">
-                <div class="sort-input"><input type="text" placeholder="Enter search keyword"> <img src="img/sort.png" alt="" class="sort-gallery" onclick="sortGallery()"></div>
-                <div class="keyword-section">happy</div>
+                <div class="sort-input">
+                    <input list="keys" id="key-words" placeholder="Enter search keyword">
+                    <datalist id="keys">
+                    <option value="funny">
+                    <option value="politics">
+                    <option value="sport">
+                    <option value="tv">
+                    <option value="cute">
+                  </datalist>
+                    <img src="img/sort.png" alt="" class="sort-gallery" onclick="filterByKeyWords()">
+                </div>
+                <div class="keywords-section flex"></div>
             </div>
             <div class="dark-bg">
                 <div class="gallery-section grid main-layout"></div>
             </div>
         </section>
     </div>
+
 
     <div class="dark-bg">
         <section class="editor-main flex space-between main-layout">

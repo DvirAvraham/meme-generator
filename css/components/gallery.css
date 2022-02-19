@@ -18,4 +18,9 @@
 
 .sort-input img {
     width: 20px;
+    cursor: pointer;
+}
+
+.key-word {
+    cursor: pointer;
 }
