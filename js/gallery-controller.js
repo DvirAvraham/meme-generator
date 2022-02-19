@@ -34,6 +34,7 @@ function resetVars() {
     gCurrLineIdx = 0
     gCurrXPos = 100
     gCurrYPos = 100
+    gIsExternalImg = false
 }
 
 function filterByKeyWords(keyWordByClick) {

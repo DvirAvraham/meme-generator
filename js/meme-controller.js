@@ -6,11 +6,15 @@ var gCurrXPos = 100
 var gCurrYPos = 100
 const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
 var gStartPos
+var gImg
+var gIsExternalImg = false
 
 
 function renderMeme(id) {
     updateMemeImg(id)
-    var img = document.getElementById(id)
+    var img
+    if (gIsExternalImg) img = gImg
+    else img = document.getElementById(id)
     const meme = getMeme()
     var memeStyle = meme.lines
     if (!meme.lines.length) resetMeme()
@@ -146,6 +150,7 @@ function onImgInput(ev) {
 }
 
 function loadImageFromInput(ev, onImageReady) {
+    gIsExternalImg = !gIsExternalImg
     document.querySelector('.share-container').innerHTML = ''
     var reader = new FileReader()
 
@@ -155,7 +160,8 @@ function loadImageFromInput(ev, onImageReady) {
             // Render on canvas
         img.onload = onImageReady.bind(null, img)
         img.src = event.target.result
-            // gImg = img
+        debugger
+        gImg = img
     }
     console.log('after');
     reader.readAsDataURL(ev.target.files[0])
