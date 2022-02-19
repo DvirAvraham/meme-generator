@@ -44,9 +44,9 @@ function resetMeme() {
     }]
 }
 
-function updateLinePos(x, y) {
+function updateLinePos(x, y, txt = 'I sometimes eat Falafel') {
     var line = {
-        txt: 'I sometimes eat Falafel',
+        txt,
         size: 20,
         align: 'left',
         color: 'black',

@@ -72,6 +72,14 @@
                 <div>
                     <button class="btn a" onclick="onImpact()"> A </button> Set Color - <input type="color" name="color-fill" oninput="updateColorTxt(this.value)">
                 </div>
+                <div class="flex space-between ">
+                    <div class="emoji" onclick="onAddLine('👍')">👍</div>
+                    <div class="emoji" onclick="onAddLine('😄')">😄</div>
+                    <div class="emoji" onclick="onAddLine('🤣')">🤣</div>
+                    <div class="emoji" onclick="onAddLine('😋')">😋</div>
+                    <div class="emoji" onclick="onAddLine('🙈')">🙈</div>
+                    <div class="emoji" onclick="onAddLine('🍕')">🍕</div>
+                </div>
                 <div> <input type="file" onchange="onImgInput(event)"></div>
                 <div class="remove-marker" onclick="reRender()">Remove Marker <img src="img/marker.jpg" alt=""></div>
                 <div class="share-on-facebook" onclick="uploadImg()"> Share On Facebook </div>

@@ -30,3 +30,7 @@
 .remove-marker {
     cursor: pointer;
 }
+
+.emoji {
+    cursor: pointer;
+}

@@ -87,13 +87,13 @@ function onSwitchLine() {
     if (gCurrLineIdx > meme.lines.length - 1) gCurrLineIdx = 0
 }
 
-function onAddLine() {
+function onAddLine(emoji) {
     drawMarker()
     clearTxtInput()
     const meme = getMeme()
     gCurrLineIdx = meme.lines.length
     setTxtLocation()
-    updateLinePos(gCurrXPos, gCurrYPos)
+    updateLinePos(gCurrXPos, gCurrYPos, emoji)
     var memeStyle = meme.lines[gCurrLineIdx]
     drawText(memeStyle.txt, memeStyle.x, memeStyle.y, memeStyle.color, memeStyle.size, memeStyle.align, memeStyle.font)
 }
