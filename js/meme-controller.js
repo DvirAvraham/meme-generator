@@ -28,7 +28,7 @@ function renderMeme(id) {
     renderImg(img)
     for (let i = 0; i < memeStyle.length; i++) {
         var currMeme = memeStyle[i]
-        drawText(currMeme.txt, currMeme.x, currMeme.y, currMeme.color, currMeme.size, currMeme.align)
+        drawText(currMeme.txt, currMeme.x, currMeme.y, currMeme.color, currMeme.size, currMeme.align, currMeme.font)
     }
 }
 
@@ -95,7 +95,7 @@ function onAddLine() {
     setTxtLocation()
     updateLinePos(gCurrXPos, gCurrYPos)
     var memeStyle = meme.lines[gCurrLineIdx]
-    drawText(memeStyle.txt, memeStyle.x, memeStyle.y, memeStyle.color, memeStyle.size)
+    drawText(memeStyle.txt, memeStyle.x, memeStyle.y, memeStyle.color, memeStyle.size, memeStyle.align, memeStyle.font)
 }
 
 function updateLineTxt(txt) {
@@ -172,13 +172,13 @@ function renderImg(img) {
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
 }
 
-function drawText(text, x, y, color, font, align) {
+function drawText(text, x, y, color, fontSize, align, font = 'Ariel') {
     gCtx.beginPath()
     gCtx.lineWidth = 2;
     gCtx.strokeStyle = color;
     gCtx.fillStyle = color;
     gCtx.textAlign = align
-    gCtx.font = `${font}px Arial`;
+    gCtx.font = `${fontSize}px ${font}`;
     gCtx.fillText(text, x, y);
     gCtx.strokeText(text, x, y);
 }
@@ -258,3 +258,9 @@ function drawMarker() {
 //     var meme = getMeme()
 //     updateCreatedMemes(meme)
 // }
+
+function onImpact() {
+    setTxtLocation()
+    setFont(gCurrLineIdx)
+    reRender()
+}

@@ -12,7 +12,8 @@ var gMeme = {
         x: 100,
         y: 100,
         isDrag: false,
-        align: 'left'
+        align: 'left',
+        font: 'Ariel'
     }]
 }
 var gCreatedMemes = []
@@ -37,7 +38,9 @@ function resetMeme() {
         x: 100,
         y: 100,
         isDrag: false,
-        align: 'left'
+        align: 'left',
+        font: 'Ariel'
+
     }]
 }
 
@@ -49,7 +52,8 @@ function updateLinePos(x, y) {
         color: 'black',
         x,
         y,
-        align: 'left'
+        align: 'left',
+        font: 'Ariel'
     }
     gMeme.lines.push(line)
 }
@@ -149,3 +153,10 @@ function setTxtLeft(idx) {
 //     gCreatedMemes.push(meme)
 //     saveToStorage(STORAGE_KEY, gCreatedMemes)
 // }
+
+function setFont(idx) {
+    var currFont = gMeme.lines[idx].font
+    debugger
+    if (currFont === 'Ariel') gMeme.lines[idx].font = "Courier New"
+    else gMeme.lines[idx].font = 'Ariel'
+}

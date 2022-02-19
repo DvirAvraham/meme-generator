@@ -22,4 +22,11 @@
 
 .share-on-facebook {
     cursor: pointer;
+    border-radius: 5px;
+    background-color: var(--clr1);
+    font-weight: bold;
+}
+
+.remove-marker {
+    cursor: pointer;
 }
