@@ -15,6 +15,8 @@ var gMeme = {
         align: 'left'
     }]
 }
+var gCreatedMemes = []
+const STORAGE_KEY = 'imgs'
 
 createImgs()
 
@@ -135,16 +137,15 @@ function setTxtRight(idx) {
     gMeme.lines[idx].align = 'right'
 }
 
-
-
 function setTxtCenter(idx) {
     gMeme.lines[idx].align = 'center'
-
 }
-
-
 
 function setTxtLeft(idx) {
     gMeme.lines[idx].align = 'left'
-
 }
+
+// function updateCreatedMemes(meme) {
+//     gCreatedMemes.push(meme)
+//     saveToStorage(STORAGE_KEY, gCreatedMemes)
+// }

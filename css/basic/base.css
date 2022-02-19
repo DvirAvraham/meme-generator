@@ -35,3 +35,24 @@ button {
 .logo {
     cursor: pointer;
 }
+
+.social-main ul li {
+    margin-inline-end: 30px;
+}
+
+.social-main li a {
+    font-size: 2.5rem;
+    color: rgb(223, 221, 221);
+}
+
+.fa-facebook-square:hover {
+    color: var(--clr3);
+}
+
+.fa-twitter-square:hover {
+    color: var(--clr4);
+}
+
+.fa-dribbble-square:hover {
+    color: var(--clr5);
+}

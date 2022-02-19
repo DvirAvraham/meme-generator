@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meme Generator</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body onload="onInit()">
@@ -73,6 +74,7 @@
                 </div>
                 <div> <input type="file" onchange="onImgInput(event)"></div>
                 <div class="share-on-facebook" onclick="uploadImg()"> Share On Facebook </div>
+                <div onclick="reRender()">Remove Marker</div>
             </div>
         </section>
     </div>
@@ -85,6 +87,19 @@
         <div class="info-txt flex column">
             <h1 class="name">Dvir Avraham</h1>
             <div class="info-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium illo vero quod eligendi aliquid voluptatem porro doloremque suscipit. Hic assumenda doloremque unde possimus dolorem. Laudantium.</div>
+            <section class="social-main ">
+                <ul class="social-container clean-list flex justify-center ">
+                    <li>
+                        <a href="#" class="fa-brands fa-facebook-square"></a>
+                    </li>
+                    <li>
+                        <a href="#" class="fa-brands fa-twitter-square"></a>
+                    </li>
+                    <li>
+                        <a href="#" class="fa-brands fa-dribbble-square"></a>
+                    </li>
+                </ul>
+            </section>
         </div>
     </section>
 

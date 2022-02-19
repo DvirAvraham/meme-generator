@@ -47,6 +47,7 @@ function setTxtLocation() {
 }
 
 function onRemoveLine() {
+    drawMarker()
     clearTxtInput()
     setTxtLocation()
     removeLine(gCurrLineIdx)
@@ -87,6 +88,7 @@ function onSwitchLine() {
 }
 
 function onAddLine() {
+    drawMarker()
     clearTxtInput()
     const meme = getMeme()
     gCurrLineIdx = meme.lines.length
@@ -197,6 +199,7 @@ function onDown(ev) {
         }
     }
     if (!isHitLine) return
+    drawMarker(meme[gCurrLineIdx].x, meme[gCurrLineIdx].y)
     setLinkDrag(true, gCurrLineIdx)
     document.body.style.cursor = 'grab'
     gStartPos = pos
@@ -219,6 +222,7 @@ function getEvPos(ev) {
 }
 
 function onMove(ev) {
+    drawMarker()
     const meme = getMeme()
     if (meme.lines[gCurrLineIdx].isDrag) {
         const pos = getEvPos(ev)
@@ -232,6 +236,25 @@ function onMove(ev) {
 }
 
 function onUp() {
+    drawMarker()
     setLinkDrag(false, gCurrLineIdx)
     document.body.style.cursor = 'grab'
 }
+
+function drawMarker() {
+    var meme = getMeme()
+    renderMeme(meme.selectedImgId)
+    var x = meme.lines[gCurrLineIdx].x
+    var y = meme.lines[gCurrLineIdx].y
+    gCtx.beginPath()
+    gCtx.fillStyle = 'red'
+    gCtx.rect(x, y, 10, 10)
+    gCtx.fillRect(x, y, 10, 10)
+    gCtx.strokeStyle = 'red'
+    gCtx.stroke()
+}
+
+// function saveMeme() {
+//     var meme = getMeme()
+//     updateCreatedMemes(meme)
+// }
