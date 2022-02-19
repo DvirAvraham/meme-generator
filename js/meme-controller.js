@@ -160,7 +160,6 @@ function loadImageFromInput(ev, onImageReady) {
             // Render on canvas
         img.onload = onImageReady.bind(null, img)
         img.src = event.target.result
-        debugger
         gImg = img
     }
     console.log('after');
