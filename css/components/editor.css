@@ -19,3 +19,7 @@
 .txt-input {
     margin-top: 13px;
 }
+
+.share-on-facebook {
+    cursor: pointer;
+}

@@ -31,3 +31,7 @@ button {
     border: unset;
     cursor: pointer;
 }
+
+.logo {
+    cursor: pointer;
+}

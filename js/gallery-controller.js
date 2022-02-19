@@ -34,7 +34,6 @@ function resetVars() {
     gCurrLineIdx = 0
     gCurrXPos = 100
     gCurrYPos = 100
-    gIsNotFirstLine = false
 }
 
 function filterByKeyWords(keyWordByClick) {

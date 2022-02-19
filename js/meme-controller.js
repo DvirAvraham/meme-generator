@@ -4,7 +4,6 @@ var gCtx
 var gCurrLineIdx = 0
 var gCurrXPos = 100
 var gCurrYPos = 100
-var gIsNotFirstLine = false
 const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
 var gStartPos
 
@@ -147,8 +146,7 @@ function onImgInput(ev) {
 }
 
 function loadImageFromInput(ev, onImageReady) {
-    debugger
-    // document.querySelector('.share-container').innerHTML = ''
+    document.querySelector('.share-container').innerHTML = ''
     var reader = new FileReader()
 
     reader.onload = function(event) {
