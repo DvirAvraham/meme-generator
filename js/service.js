@@ -11,8 +11,8 @@ var gMeme = {
         color: 'black',
         x: 100,
         y: 100,
-        isDrag: false
-
+        isDrag: false,
+        align: 'left'
     }]
 }
 
@@ -34,7 +34,8 @@ function resetMeme() {
         color: 'black',
         x: 100,
         y: 100,
-        isDrag: false
+        isDrag: false,
+        align: 'left'
     }]
 }
 
@@ -45,31 +46,32 @@ function updateLinePos(x, y) {
         align: 'left',
         color: 'black',
         x,
-        y
+        y,
+        align: 'left'
     }
     gMeme.lines.push(line)
 }
 
 function createImgs() {
     gImgs = [
-        createImg(1, ['funny', 'sweet']),
-        createImg(2, ['funny', 'scary']),
-        createImg(3, ['funny', 'sweet']),
-        createImg(4, ['funny', 'sweet']),
-        createImg(5, ['funny', 'scary']),
-        createImg(6, ['funny', 'sweet']),
-        createImg(7, ['funny', 'sweet']),
-        createImg(8, ['funny', 'scary']),
-        createImg(9, ['funny', 'sweet']),
-        createImg(10, ['funny', 'sweet']),
-        createImg(11, ['funny', 'scary']),
-        createImg(12, ['funny', 'sweet']),
-        createImg(13, ['funny', 'sweet']),
-        createImg(14, ['funny', 'scary']),
-        createImg(15, ['funny', 'sweet']),
-        createImg(16, ['funny', 'sweet']),
-        createImg(17, ['funny', 'scary']),
-        createImg(18, ['funny', 'sweet'])
+        createImg(1, ['politics']),
+        createImg(2, ['love', 'cute']),
+        createImg(3, ['calm', 'cute']),
+        createImg(4, ['calm', 'cute']),
+        createImg(5, ['got it', 'cute']),
+        createImg(6, ['funny', 'wrong']),
+        createImg(7, ['funny', 'cute']),
+        createImg(8, ['funny', 'tell me more']),
+        createImg(9, ['funny', 'cute']),
+        createImg(10, ['politics', 'funny']),
+        createImg(11, ['funny', 'sport']),
+        createImg(12, ['funny', 'tv']),
+        createImg(13, ['funny', 'movies']),
+        createImg(14, ['funny', 'movies']),
+        createImg(15, ['funny', 'movies']),
+        createImg(16, ['funny', 'movies']),
+        createImg(17, ['politics', 'scary']),
+        createImg(18, ['funny', 'movies'])
     ]
 }
 
@@ -127,4 +129,22 @@ function setLinkDrag(isDrag, idx) {
 function moveLine(dx, dy, idx) {
     gMeme.lines[idx].x += dx
     gMeme.lines[idx].y += dy
+}
+
+function setTxtRight(idx) {
+    gMeme.lines[idx].align = 'right'
+}
+
+
+
+function setTxtCenter(idx) {
+    gMeme.lines[idx].align = 'center'
+
+}
+
+
+
+function setTxtLeft(idx) {
+    gMeme.lines[idx].align = 'left'
+
 }

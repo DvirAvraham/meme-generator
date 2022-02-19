@@ -1,7 +1,7 @@
 'use strict'
 var gElCanvas
 var gCtx
-var gLinesNum = 0
+var gCurrLineIdx = 0
 var gCurrXPos = 100
 var gCurrYPos = 100
 var gIsNotFirstLine = false
@@ -25,7 +25,7 @@ function renderMeme(id) {
     renderImg(img)
     for (let i = 0; i < memeStyle.length; i++) {
         var currMeme = memeStyle[i]
-        drawText(currMeme.txt, currMeme.x, currMeme.y, currMeme.color, currMeme.size)
+        drawText(currMeme.txt, currMeme.x, currMeme.y, currMeme.color, currMeme.size, currMeme.align)
     }
 }
 
@@ -35,8 +35,8 @@ function reRender() {
 }
 
 function setTxtLocation() {
-    if (!gLinesNum) return
-    if (gLinesNum === 1) {
+    if (!gCurrLineIdx) return
+    if (gCurrLineIdx === 1) {
         gCurrYPos = gElCanvas.height - 100
     } else {
         gCurrYPos = gElCanvas.width / 2
@@ -46,55 +46,74 @@ function setTxtLocation() {
 function onRemoveLine() {
     clearTxtInput()
     setTxtLocation()
-    removeLine(gLinesNum)
-    gLinesNum--
+    removeLine(gCurrLineIdx)
+    gCurrLineIdx--
     reRender()
     const meme = getMeme()
-    if (gLinesNum < meme.lines.length - 1 || gLinesNum < 0) {
-        gLinesNum = 0
+    if (gCurrLineIdx < meme.lines.length - 1 || gCurrLineIdx < 0) {
+        gCurrLineIdx = 0
         gCurrYPos = 100
         gCurrXPos = 100
     }
 }
 
+function onRightText() {
+    setTxtLocation()
+    setTxtRight(gCurrLineIdx)
+    reRender()
+
+}
+
+function onCenterText() {
+    setTxtLocation()
+    setTxtCenter(gCurrLineIdx)
+    reRender()
+}
+
+function onLeftText() {
+    setTxtLocation()
+    setTxtLeft(gCurrLineIdx)
+    reRender()
+}
+
 function onSwitchLine() {
     clearTxtInput()
-    gLinesNum++
+    gCurrLineIdx++
     const meme = getMeme()
-    if (gLinesNum > meme.lines.length - 1) gLinesNum = 0
+    if (gCurrLineIdx > meme.lines.length - 1) gCurrLineIdx = 0
 }
 
 function onAddLine() {
     clearTxtInput()
     const meme = getMeme()
-    gLinesNum = meme.lines.length
+    gCurrLineIdx = meme.lines.length
     setTxtLocation()
     updateLinePos(gCurrXPos, gCurrYPos)
-    var memeStyle = meme.lines[gLinesNum]
+    var memeStyle = meme.lines[gCurrLineIdx]
     drawText(memeStyle.txt, memeStyle.x, memeStyle.y, memeStyle.color, memeStyle.size)
 }
 
 function updateLineTxt(txt) {
     setTxtLocation()
-    setLineTxt(txt, gLinesNum)
+    setLineTxt(txt, gCurrLineIdx)
     reRender()
 }
 
 function updateColorTxt(color) {
     setTxtLocation()
-    setColorTxt(color, gLinesNum)
+    setColorTxt(color, gCurrLineIdx)
     reRender()
 }
 
 function onReduceFontSize() {
     setTxtLocation()
-    lowerFont(gLinesNum)
+    lowerFont(gCurrLineIdx)
     reRender()
 }
 
 function onIncreaseFontSize() {
     setTxtLocation()
-    increaseFont(gLinesNum)
+    increaseFont(gCurrLineIdx)
     reRender()
 }
 
@@ -148,11 +167,12 @@ function renderImg(img) {
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
 }
 
-function drawText(text, x, y, color, font) {
+function drawText(text, x, y, color, font, align) {
     gCtx.beginPath()
     gCtx.lineWidth = 2;
     gCtx.strokeStyle = color;
     gCtx.fillStyle = color;
+    gCtx.textAlign = align
     gCtx.font = `${font}px Arial`;
     gCtx.fillText(text, x, y);
     gCtx.strokeText(text, x, y);
@@ -168,14 +188,14 @@ function onDown(ev) {
     const pos = getEvPos(ev)
     for (var i = 0; i < meme.length; i++) {
         if (isLineClicked(pos, i)) {
-            gLinesNum = i;
+            gCurrLineIdx = i;
             isHitLine = !isHitLine
             break
         }
     }
     if (!isHitLine) return
-    setLinkDrag(true, gLinesNum)
-    document.body.style.cursor = 'grabbing'
+    setLinkDrag(true, gCurrLineIdx)
+    document.body.style.cursor = 'grab'
     gStartPos = pos
 }
 
@@ -197,19 +217,18 @@ function getEvPos(ev) {
 
 function onMove(ev) {
     const meme = getMeme()
-    if (meme.lines[gLinesNum].isDrag) {
+    if (meme.lines[gCurrLineIdx].isDrag) {
         const pos = getEvPos(ev)
         const dx = pos.x - gStartPos.x
         const dy = pos.y - gStartPos.y
-        moveLine(dx, dy, gLinesNum)
+        moveLine(dx, dy, gCurrLineIdx)
         gStartPos = pos
             // debugger
         renderMeme(meme.selectedImgId)
     }
-    document.body.style.cursor = 'grab'
 }
 
 function onUp() {
-    setLinkDrag(false, gLinesNum)
+    setLinkDrag(false, gCurrLineIdx)
     document.body.style.cursor = 'grab'
 }
