@@ -4,11 +4,11 @@
 
 .editor-section {
     text-align: center;
-    gap: 10px;
+    gap: 15px;
 }
 
 .a {
-    width: 17px;
+    width: 2.3125rem;
     height: 28.5px;
     -webkit-text-stroke: 2.5px #000;
     font-family: Montserrat;
@@ -33,4 +33,10 @@
 
 .emoji {
     cursor: pointer;
+}
+
+.upload-img {
+    display: flex;
+    flex-grow: 1;
+    align-items: end;
 }

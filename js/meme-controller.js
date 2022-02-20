@@ -47,7 +47,6 @@ function setTxtLocation() {
 }
 
 function onRemoveLine() {
-    drawMarker()
     clearTxtInput()
     setTxtLocation()
     removeLine(gCurrLineIdx)
@@ -59,6 +58,7 @@ function onRemoveLine() {
         gCurrYPos = 100
         gCurrXPos = 100
     }
+    drawMarker()
 }
 
 function onRightText() {
@@ -85,10 +85,10 @@ function onSwitchLine() {
     gCurrLineIdx++
     const meme = getMeme()
     if (gCurrLineIdx > meme.lines.length - 1) gCurrLineIdx = 0
+    drawMarker()
 }
 
 function onAddLine(emoji) {
-    drawMarker()
     clearTxtInput()
     const meme = getMeme()
     gCurrLineIdx = meme.lines.length
@@ -96,6 +96,7 @@ function onAddLine(emoji) {
     updateLinePos(gCurrXPos, gCurrYPos, emoji)
     var memeStyle = meme.lines[gCurrLineIdx]
     drawText(memeStyle.txt, memeStyle.x, memeStyle.y, memeStyle.color, memeStyle.size, memeStyle.align, memeStyle.font)
+    drawMarker()
 }
 
 function updateLineTxt(txt) {
@@ -174,8 +175,8 @@ function renderImg(img) {
 
 function drawText(text, x, y, color, fontSize, align, font = 'Ariel') {
     gCtx.beginPath()
-    gCtx.lineWidth = 2;
-    gCtx.strokeStyle = color;
+    gCtx.lineWidth = 0.3;
+    gCtx.strokeStyle = 'black';
     gCtx.fillStyle = color;
     gCtx.textAlign = align
     gCtx.font = `${fontSize}px ${font}`;
@@ -201,7 +202,7 @@ function onDown(ev) {
     if (!isHitLine) return
     drawMarker(meme[gCurrLineIdx].x, meme[gCurrLineIdx].y)
     setLinkDrag(true, gCurrLineIdx)
-    document.body.style.cursor = 'grab'
+    document.body.style.cursor = 'grabbing'
     gStartPos = pos
 }
 
@@ -259,8 +260,8 @@ function drawMarker() {
 //     updateCreatedMemes(meme)
 // }
 
-function onImpact() {
+function onChangeFont(font) {
     setTxtLocation()
-    setFont(gCurrLineIdx)
+    setFont(gCurrLineIdx, font)
     reRender()
 }

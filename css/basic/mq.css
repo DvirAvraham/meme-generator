@@ -25,6 +25,7 @@
                     width: 100%;
                     gap: 11px;
                     grid-template-columns: repeat(2, 1fr);
+                    margin-bottom: 20px;
                 }
                 .editor-main {
                     flex-direction: column;
@@ -44,9 +45,10 @@
                     cursor: pointer;
                     border-radius: 5px;
                     margin-inline-end: 10px;
+                    color: white;
                 }
                 .key-word {
-                    font-size: 0.4rem;
+                    font-size: 0.5rem;
                 }
             }
             
@@ -66,7 +68,7 @@
                 }
                 .header-gallery-btn:hover {
                     position: relative;
-                    margin-bottom: -15px;
+                    margin-bottom: -3.5vh;
                     border-bottom: 3px solid black;
                 }
                 .gallery-section {
@@ -97,14 +99,14 @@
                 .pressed {
                     color: black;
                     position: relative;
-                    margin-bottom: -15px;
+                    margin-bottom: -3.5vh;
                     border-bottom: 3px solid black;
                 }
                 .header-ham-btn {
                     display: none;
                 }
                 .key-word {
-                    font-size: 0.8rem;
+                    font-size: 0.7rem;
                 }
             }
             

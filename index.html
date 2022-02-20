@@ -58,19 +58,23 @@
             <div class="editor-section flex column ">
                 <div class="txt-input"><input type="text" name="input-txt" id="input-txt" placeholder="Type here..." oninput="updateLineTxt(this.value)"></div>
                 <div>
-                    <button class="btn" onclick="onSwitchLine()"> <img src="img/up-and-down-opposite-double-arrows-side-by-side.jpg" alt=""> </button>
-                    <button class="btn" onclick="onAddLine()"> <img src="img/add.jpg" alt=""> </button>
-                    <button class="btn" onclick="onRemoveLine()"> <img src="img/trash.jpg" alt=""> </button>
+                    <button class="btn" onclick="onSwitchLine()"> <img src="img/switch.png" alt=""> </button>
+                    <button class="btn" onclick="onAddLine()"> <img src="img/add.png" alt=""> </button>
+                    <button class="btn" onclick="onRemoveLine()"> <img src="img/trash.png" alt=""> </button>
                 </div>
                 <div>
                     <button class="btn" onclick="onIncreaseFontSize()"> <img src="img/increase.png" alt=""> </button>
-                    <button class="btn" onclick="onReduceFontSize()"> <img src="img/decrease.jpg" alt=""> </button>
+                    <button class="btn" onclick="onReduceFontSize()"> <img src="img/decrease.png" alt=""> </button>
                     <button class="btn" onclick="onLeftText()"> <img src="img/left.png" alt=""> </button>
-                    <button class="btn" onclick="onCenterText()"> <img src="img/center.jpg" alt=""> </button>
-                    <button class="btn" onclick="onRightText()"> <img src="img/right.jpg" alt=""> </button>
+                    <button class="btn" onclick="onCenterText()"> <img src="img/center.png" alt=""> </button>
+                    <button class="btn" onclick="onRightText()"> <img src="img/right.png" alt=""> </button>
                 </div>
                 <div>
-                    <button class="btn a" onclick="onImpact()"> A </button> Set Color - <input type="color" name="color-fill" oninput="updateColorTxt(this.value)">
+                    <select id="fonts" onchange="onChangeFont(value)">
+                        <option value="Ariel"> Ariel </option>
+                        <option value="Courier New"> Courier New </option>
+                        <option value="Impact"> Impact </option>
+                      </select> Set Color - <input type="color" name="color-fill" oninput="updateColorTxt(this.value)">
                 </div>
                 <div class="flex space-between ">
                     <div class="emoji" onclick="onAddLine('👍')">👍</div>
@@ -80,14 +84,13 @@
                     <div class="emoji" onclick="onAddLine('🙈')">🙈</div>
                     <div class="emoji" onclick="onAddLine('🍕')">🍕</div>
                 </div>
-                <div> <input type="file" onchange="onImgInput(event)"></div>
                 <div class="remove-marker" onclick="reRender()">Remove Marker <img src="img/marker.jpg" alt=""></div>
                 <div class="share-on-facebook" onclick="uploadImg()"> Share On Facebook </div>
+                <div class="upload-img"> <input type="file" onchange="onImgInput(event)"></div>
             </div>
         </section>
     </div>
 
-    <p class="user-msg "></p>
     <div class="share-container"> </div>
 
     <section class="info main-layout flex align-center">

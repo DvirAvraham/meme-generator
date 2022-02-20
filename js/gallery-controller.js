@@ -68,9 +68,14 @@ function renderKeyWords() {
         }
         gKeyRate.push(keywordObj)
     })
-    var strHTMLs = keyWords.map(keyWord => {
-        return `<div class="key-word"
+    var strHTMLs = keyWords.map((keyWord, idx) => {
+        if (idx === keyWords.length - 1) {
+            return `<div class="key-word"
+            onclick="increaseFontSize('${keyWord}', this)">${keyWord}  </div>`
+        } else {
+            return `<div class="key-word"
          onclick="increaseFontSize('${keyWord}', this)">${keyWord}  ,</div>`
+        }
     })
     document.querySelector('.keywords-section').innerHTML = strHTMLs.join('')
 }
@@ -80,5 +85,6 @@ function increaseFontSize(keyWord, elWord) {
     gKeyRate[keyIdx].rate++
         elWord.style.fontSize = gKeyRate[keyIdx].rate + 'px'
     filterByKeyWords(keyWord)
+        // debugger
 
 }

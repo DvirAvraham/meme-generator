@@ -154,9 +154,8 @@ function setTxtLeft(idx) {
 //     saveToStorage(STORAGE_KEY, gCreatedMemes)
 // }
 
-function setFont(idx) {
-    var currFont = gMeme.lines[idx].font
+function setFont(idx, font) {
     debugger
-    if (currFont === 'Ariel') gMeme.lines[idx].font = "Courier New"
-    else gMeme.lines[idx].font = 'Ariel'
+    gMeme.lines[idx].font = font
+
 }
