@@ -19,7 +19,9 @@ function renderMeme(id) {
     var memeStyle = meme.lines
     if (!meme.lines.length) resetMeme()
     document.querySelector('.gallery-main').classList.remove('show')
+    document.querySelector('.saved-memes').classList.remove('grid')
     document.querySelector('.header-gallery-btn').classList.remove('pressed')
+    document.querySelector('.header-saved-memes').classList.remove('pressed')
     document.querySelector('.editor-main').classList.add('flex')
     gElCanvas = document.getElementById('my-canvas');
     gCtx = gElCanvas.getContext('2d');
@@ -270,4 +272,5 @@ function onDownloadImg(elLink) {
     console.log(elLink);
     var imgContent = gElCanvas.toDataURL('image/jpeg')
     elLink.href = imgContent
+    updateCreatedMemes(imgContent)
 }

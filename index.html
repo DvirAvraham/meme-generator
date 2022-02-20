@@ -19,6 +19,7 @@
             <div class="flex header-options ">
                 <ul class="header-options-list flex clean-list">
                     <li class="header-gallery-btn" onclick="renderImgs()"> Gallery </li>
+                    <li class="header-saved-memes" onclick="renderMemes()"> My Memes </li>
                     <li class="header-ham-btn" onclick="renderImgs(), toggleNav()"> Gallery </li>
                     <li class="header-about-btn"> About</li>
                 </ul>
@@ -94,6 +95,11 @@
         </section>
     </div>
 
+
+    <div class="dark-bg">
+        <section class="saved-memes grid main-layout"></section>
+    </div>
+
     <div class="share-container"> </div>
 
     <section class="info main-layout flex align-center">
@@ -117,6 +123,7 @@
         </div>
     </section>
 
+
     <footer>
         <div class="footer main-layout flex column justify-center ">
             <div class="logo">Meme Generator</div>
@@ -130,6 +137,7 @@
     <script src="js/service.js"></script>
     <script src="js/meme-controller.js"></script>
     <script src="js/gallery-controller.js"></script>
+    <script src="js/saved-memes-gallery-controller.js"></script>
 </body>
 
 </html>

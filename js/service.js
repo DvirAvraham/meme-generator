@@ -149,12 +149,16 @@ function setTxtLeft(idx) {
     gMeme.lines[idx].align = 'left'
 }
 
-// function updateCreatedMemes(meme) {
-//     gCreatedMemes.push(meme)
-//     saveToStorage(STORAGE_KEY, gCreatedMemes)
-// }
+function updateCreatedMemes(meme) {
+    gCreatedMemes.push(meme)
+    saveToStorage(STORAGE_KEY, gCreatedMemes)
+}
 
 function setFont(idx, font) {
     gMeme.lines[idx].font = font
 
+}
+
+function openSavedMemes() {
+    return loadFromStorage(STORAGE_KEY)
 }

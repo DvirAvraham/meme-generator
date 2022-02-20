@@ -17,6 +17,10 @@ body {
     margin-top: 13px;
 }
 
+.saved-memes {
+    display: none;
+}
+
 .canvas-container {
     min-width: 450px;
 }

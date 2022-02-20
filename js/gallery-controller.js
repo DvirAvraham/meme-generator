@@ -8,8 +8,11 @@ function onInit() {
 
 function renderImgs() {
     document.querySelector('.gallery-main').classList.add('show')
+    document.querySelector('.saved-memes').classList.remove('grid')
     document.querySelector('.editor-main').classList.remove('flex')
     document.querySelector('.header-gallery-btn').classList.add('pressed')
+    document.querySelector('.header-saved-memes').classList.remove('pressed')
+
     resetVars()
     resetMeme()
     clearTxtInput()

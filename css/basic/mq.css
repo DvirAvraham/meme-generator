@@ -27,6 +27,12 @@
                     grid-template-columns: repeat(2, 1fr);
                     margin-bottom: 20px;
                 }
+                .saved-memes {
+                    width: 100%;
+                    gap: 11px;
+                    grid-template-columns: repeat(2, 1fr);
+                    margin-bottom: 20px;
+                }
                 .editor-main {
                     flex-direction: column;
                 }
@@ -75,6 +81,11 @@
                     width: 100%;
                     gap: 11px;
                     grid-template-columns: repeat(3, 1fr);
+                }
+                .saved-memes {
+                    width: 100%;
+                    gap: 11px;
+                    grid-template-columns: repeat(2, 1fr);
                 }
                 .editor-main {
                     flex-direction: row;
