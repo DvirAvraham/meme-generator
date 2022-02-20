@@ -53,7 +53,7 @@
     <div class="dark-bg">
         <section class="editor-main flex space-between main-layout">
             <div class="canvas-container">
-                <canvas width="450" height="430" id="my-canvas"></canvas>
+                <canvas width="450" height="450" id="my-canvas"></canvas>
             </div>
             <div class="editor-section flex column ">
                 <div class="txt-input"><input type="text" name="input-txt" id="input-txt" placeholder="Type here..." oninput="updateLineTxt(this.value)"></div>
@@ -74,7 +74,9 @@
                         <option value="Ariel"> Ariel </option>
                         <option value="Courier New"> Courier New </option>
                         <option value="Impact"> Impact </option>
-                      </select> Set Color - <input type="color" name="color-fill" oninput="updateColorTxt(this.value)">
+                      </select>
+                    <input class="color-input" type="color" id="color" oninput="updateColorTxt(this.value)">
+                    <label for="color">  <img src="img/paint.png" alt=""> </label>
                 </div>
                 <div class="flex space-between ">
                     <div class="emoji" onclick="onAddLine('👍')">👍</div>
@@ -86,6 +88,7 @@
                 </div>
                 <div class="remove-marker" onclick="reRender()">Remove Marker <img src="img/marker.jpg" alt=""></div>
                 <div class="share-on-facebook" onclick="uploadImg()"> Share On Facebook </div>
+                <div class="download"> <a href="#" class="btn" onclick="onDownloadImg(this)" download="my-img.jpg">Download as jpeg</a> </div>
                 <div class="upload-img"> <input type="file" onchange="onImgInput(event)"></div>
             </div>
         </section>

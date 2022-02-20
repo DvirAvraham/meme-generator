@@ -24,7 +24,7 @@ function renderMeme(id) {
     gElCanvas = document.getElementById('my-canvas');
     gCtx = gElCanvas.getContext('2d');
     addListeners()
-    resizeCanvas()
+        // resizeCanvas()
     renderImg(img)
     for (let i = 0; i < memeStyle.length; i++) {
         var currMeme = memeStyle[i]
@@ -123,16 +123,16 @@ function onIncreaseFontSize() {
     reRender()
 }
 
-function resizeCanvas() {
-    var elContainer = document.querySelector('.canvas-container');
-    gElCanvas.width = elContainer.offsetWidth - 20
-}
+// function resizeCanvas() {
+//     var elContainer = document.querySelector('.canvas-container');
+//     gElCanvas.width = elContainer.offsetWidth - 20
+// }
 
 function addListeners() {
     addMouseListeners()
     addTouchListeners()
     window.addEventListener('resize', () => {
-        resizeCanvas()
+        // resizeCanvas()
     })
 }
 
@@ -264,4 +264,10 @@ function onChangeFont(font) {
     setTxtLocation()
     setFont(gCurrLineIdx, font)
     reRender()
+}
+
+function onDownloadImg(elLink) {
+    console.log(elLink);
+    var imgContent = gElCanvas.toDataURL('image/jpeg')
+    elLink.href = imgContent
 }

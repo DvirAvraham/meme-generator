@@ -155,7 +155,6 @@ function setTxtLeft(idx) {
 // }
 
 function setFont(idx, font) {
-    debugger
     gMeme.lines[idx].font = font
 
 }
