@@ -40,3 +40,7 @@
     flex-grow: 1;
     align-items: end;
 }
+
+.color-input {
+    display: none;
+}
